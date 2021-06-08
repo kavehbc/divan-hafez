@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-from lib.ui import create_text, init_ui, show_poem, show_search_result
+from libs.ui import create_text, init_ui, show_poem, show_search_result
 
 
 def main():

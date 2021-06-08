@@ -1,7 +1,7 @@
 import streamlit as st
 
-from lib.db import get_data, get_connection, search_data
-from lib.mp3 import play_audio
+from libs.db import get_data, get_connection, search_data
+from libs.mp3 import play_audio
 
 URI_SQLITE_DB = "db/hafez.db"
 
