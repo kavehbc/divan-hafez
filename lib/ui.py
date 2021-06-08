@@ -8,16 +8,6 @@ URI_SQLITE_DB = "db/hafez.db"
 
 def create_text(text, font="IranNastaliq", font_size=2):
     str_text = f"""
-    <style>
-    @import url(//db.onlinewebfonts.com/c/3b019b0df3b0d6ea4d1b2f051132febb?family=IranNastaliq);
-    .custom_text {{
-      unicode-bidi:bidi-override;
-      direction: RTL;
-      text-align: right;
-      font-family: '{font}', Tahoma;
-      font-size: {font_size}em;
-    }}
-    </style>
     <div class="custom_text">{text}</div>
     """
     return str_text
@@ -38,6 +28,13 @@ def init_ui():
             font-weight: bold;
             color: red;
         }
+        .custom_text {
+      unicode-bidi:bidi-override;
+      direction: RTL;
+      text-align: right;
+      font-family: 'IranNastaliq', Tahoma;
+      font-size: 2em;
+    }
         </style>
             """, unsafe_allow_html=True)
 
