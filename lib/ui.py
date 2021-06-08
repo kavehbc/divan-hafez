@@ -8,7 +8,6 @@ URI_SQLITE_DB = "db/hafez.db"
 
 def create_text(text, font="IranNastaliq", font_size="2em"):
     str_text = f"""
-    <link href="https://db.onlinewebfonts.com/c/3b019b0df3b0d6ea4d1b2f051132febb?family=IranNastaliq" rel="stylesheet" type="text/css"/>
     <style>
     .custom_text {{
       unicode-bidi:bidi-override;
@@ -32,7 +31,7 @@ def init_ui():
           /* unicode-bidi:bidi-override;
           direction: RTL;
           text-align: right; */
-          font-family: 'B Yekan', Tahoma;
+          font-family: 'IranNastaliq', 'B Yekan', Tahoma;
         }
         .found-query {
             font-weight: bold;
