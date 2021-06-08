@@ -25,10 +25,10 @@ def main():
         if len(str_query) == 0:
             st.error("جهت جستجو عبارت مورد نظر را وارد نمایید.")
         else:
-            show_search_result(str_query, font_size)
+            show_search_result(str_query)
 
     elif btn_show_poem or btn_fall:
-        show_poem(int_poem, font_size=font_size)
+        show_poem(int_poem)
 
     else:
         with open('db/home.md', 'r', encoding="utf-8") as outfile:
@@ -36,7 +36,7 @@ def main():
 
         lst_md_text = md_text.split("\n")
         for paragraph in lst_md_text:
-            st.markdown(create_text(paragraph, font="B Yekan", font_size="1em"), unsafe_allow_html=True)
+            st.markdown(create_text(paragraph, font="yekan"), unsafe_allow_html=True)
 
 
 if __name__ == '__main__':
