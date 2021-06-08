@@ -15,9 +15,24 @@ def create_text(text, font_name="nastaliq"):
 
 def init_ui():
     st.markdown("""
-        <link href="https://db.onlinewebfonts.com/c/52ce4de2efeeb8b18dcbd379711224f3?family=B+Yekan" rel="stylesheet" type="text/css"/>
-        <link href="https://db.onlinewebfonts.com/c/3b019b0df3b0d6ea4d1b2f051132febb?family=IranNastaliq" rel="stylesheet" type="text/css"/>
         <style>
+        @font-face {font-family: "B Yekan";
+            src: url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.eot"); /* IE9*/
+            src: url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.woff2") format("woff2"), /* chrome firefox */
+            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.woff") format("woff"), /* chrome firefox */
+            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.svg#B Yekan") format("svg"); /* iOS 4.1- */
+        }
+        
+        @font-face {font-family: "IranNastaliq";
+            src: url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.eot"); /* IE9*/
+            src: url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+            url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.woff2") format("woff2"), /* chrome firefox */
+            url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.woff") format("woff"), /* chrome firefox */
+            url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+            url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.svg#IranNastaliq") format("svg"); /* iOS 4.1- */
+        }
         p, div, input, label {
           /* unicode-bidi:bidi-override;
           direction: RTL;
