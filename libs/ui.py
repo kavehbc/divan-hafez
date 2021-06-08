@@ -46,7 +46,7 @@ def init_ui():
             """, unsafe_allow_html=True)
 
 
-def show_poem(int_poem, query=None, font_name="nastaliq"):
+def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
     conn = get_connection(URI_SQLITE_DB)
     df = get_data(conn, int_poem)
 
@@ -65,17 +65,23 @@ def show_poem(int_poem, query=None, font_name="nastaliq"):
                         str_poem = str_poem.replace(item, f"<span class='found-query'>{item}</span>")
         lst_poem = str_poem.split("\\r\\n")
 
-        col1, col2 = st.beta_columns(2)
         verse = 0
         while verse < len(lst_poem):
-            with col2:
-                if verse < len(lst_poem):
-                    st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
-                    verse += 1
-            with col1:
-                if verse < len(lst_poem):
-                    st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
-                    verse += 1
+            with st.beta_container():
+                if layout == "col2":
+                    col1, col2 = st.beta_columns(2)
+                    with col2:
+                        if verse < len(lst_poem):
+                            st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
+                            verse += 1
+                    with col1:
+                        if verse < len(lst_poem):
+                            st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
+                            verse += 1
+                elif layout == "col1":
+                    if verse < len(lst_poem):
+                        st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
+                        verse += 1
 
         st.header("تعبیر")
         st.write("")
@@ -84,7 +90,7 @@ def show_poem(int_poem, query=None, font_name="nastaliq"):
         play_audio(int_poem)
 
 
-def show_search_result(query, font_name):
+def show_search_result(query, font_name, layout="col2"):
     conn = get_connection(URI_SQLITE_DB)
     df = search_data(conn, query)
     for index, row in df.iterrows():
