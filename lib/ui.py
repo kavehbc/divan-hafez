@@ -24,8 +24,8 @@ def create_text(text, font="IranNastaliq", font_size="2em"):
 
 def init_ui():
     st.markdown("""
-        <link href="//db.onlinewebfonts.com/c/52ce4de2efeeb8b18dcbd379711224f3?family=B+Yekan" rel="stylesheet" type="text/css"/>
-        <link href="//db.onlinewebfonts.com/c/3b019b0df3b0d6ea4d1b2f051132febb?family=IranNastaliq" rel="stylesheet" type="text/css"/>
+        <link href="https://db.onlinewebfonts.com/c/52ce4de2efeeb8b18dcbd379711224f3?family=B+Yekan" rel="stylesheet" type="text/css"/>
+        <link href="https://db.onlinewebfonts.com/c/3b019b0df3b0d6ea4d1b2f051132febb?family=IranNastaliq" rel="stylesheet" type="text/css"/>
         <style>
         p, div, input, label {
           /* unicode-bidi:bidi-override;
