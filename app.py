@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 
+from libs.injection import manage_injections
 from libs.ui import create_text, init_ui, show_poem, show_search_result
 
 
@@ -20,7 +21,7 @@ def main():
     font_size = 2
     # font_size = st.sidebar.number_input("Font Size", min_value=0.5, max_value=5.0, value=1.5, step=0.1)
 
-    btn_fall = st.button("فال حافظ")
+    btn_fall = st.button("نمایش فال حافظ")
 
     if btn_fall:
         int_poem = random.randint(1, 495)
@@ -45,5 +46,8 @@ def main():
 
 if __name__ == '__main__':
     st.set_page_config("Divan-e Hafez")
+
+    # inject required HTML/CSS/JS into the project
+    manage_injections()
     init_ui()
     main()
