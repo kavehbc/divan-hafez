@@ -13,7 +13,10 @@ def main():
     str_query = st.sidebar.text_input("َSearch Query")
     btn_search_poem = st.sidebar.button("جستجو")
 
-    font_name = st.sidebar.selectbox("Font Name", options=["nastaliq", "yekan"])
+    dic_font_names = {"yekan": "Yekan", "nastaliq": "Nastaliq"}
+    font_name = st.sidebar.selectbox("Font Name", options=list(dic_font_names.keys()), index=0,
+                                     format_func=lambda x: dic_font_names[x])
+
     font_size = 2
     # font_size = st.sidebar.number_input("Font Size", min_value=0.5, max_value=5.0, value=1.5, step=0.1)
 
