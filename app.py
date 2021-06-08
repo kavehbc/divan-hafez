@@ -13,6 +13,7 @@ def main():
     str_query = st.sidebar.text_input("َSearch Query")
     btn_search_poem = st.sidebar.button("جستجو")
 
+    font_name = st.sidebar.selectbox("Font Name", options=["nastaliq", "yekan"])
     font_size = 2
     # font_size = st.sidebar.number_input("Font Size", min_value=0.5, max_value=5.0, value=1.5, step=0.1)
 
@@ -25,10 +26,10 @@ def main():
         if len(str_query) == 0:
             st.error("جهت جستجو عبارت مورد نظر را وارد نمایید.")
         else:
-            show_search_result(str_query)
+            show_search_result(str_query, font_name=font_name)
 
     elif btn_show_poem or btn_fall:
-        show_poem(int_poem)
+        show_poem(int_poem, font_name=font_name)
 
     else:
         with open('db/home.md', 'r', encoding="utf-8") as outfile:
@@ -36,7 +37,7 @@ def main():
 
         lst_md_text = md_text.split("\n")
         for paragraph in lst_md_text:
-            st.markdown(create_text(paragraph, font="yekan"), unsafe_allow_html=True)
+            st.markdown(create_text(paragraph, font_name="yekan"), unsafe_allow_html=True)
 
 
 if __name__ == '__main__':

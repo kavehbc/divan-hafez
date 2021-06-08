@@ -6,9 +6,9 @@ from lib.mp3 import play_audio
 URI_SQLITE_DB = "db/hafez.db"
 
 
-def create_text(text, font="nastaliq"):
+def create_text(text, font_name="nastaliq"):
     str_text = f"""
-    <div class="custom_{font}_text">{text}</div>
+    <div class="custom_{font_name}_text">{text}</div>
     """
     return str_text
 
@@ -46,7 +46,7 @@ def init_ui():
             """, unsafe_allow_html=True)
 
 
-def show_poem(int_poem, query=None):
+def show_poem(int_poem, query=None, font_name="nastaliq"):
     conn = get_connection(URI_SQLITE_DB)
     df = get_data(conn, int_poem)
 
@@ -70,25 +70,25 @@ def show_poem(int_poem, query=None):
         while verse < len(lst_poem):
             with col2:
                 if verse < len(lst_poem):
-                    st.markdown(create_text(lst_poem[verse]), unsafe_allow_html=True)
+                    st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
                     verse += 1
             with col1:
                 if verse < len(lst_poem):
-                    st.markdown(create_text(lst_poem[verse]), unsafe_allow_html=True)
+                    st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
                     verse += 1
 
         st.header("تعبیر")
         st.write("")
-        st.markdown(create_text(str_interpretation), unsafe_allow_html=True)
+        st.markdown(create_text(str_interpretation, font_name), unsafe_allow_html=True)
         st.write("")
         play_audio(int_poem)
 
 
-def show_search_result(query):
+def show_search_result(query, font_name):
     conn = get_connection(URI_SQLITE_DB)
     df = search_data(conn, query)
     for index, row in df.iterrows():
         poem_id = row["id"]
         with st.beta_expander(label=f"Poem {poem_id}", expanded=False):
-            show_poem(poem_id, query)
+            show_poem(poem_id, query, font_name=font_name)
         # st.markdown("___")
