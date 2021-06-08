@@ -3,7 +3,7 @@ import streamlit as st
 from lib.db import get_data, get_connection, search_data
 from lib.mp3 import play_audio
 
-URI_SQLITE_DB = "db\hafez.db"
+URI_SQLITE_DB = "db/hafez.db"
 
 
 def create_text(text, font="IranNastaliq", font_size="2em"):
