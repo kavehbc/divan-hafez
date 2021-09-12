@@ -82,9 +82,9 @@ def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
 
         verse = 0
         while verse < len(lst_poem):
-            with st.beta_container():
+            with st.container():
                 if layout == "col2":
-                    col1, col2 = st.beta_columns(2)
+                    col1, col2 = st.columns(2)
                     with col2:
                         if verse < len(lst_poem):
                             st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
@@ -110,6 +110,6 @@ def show_search_result(query, font_name, layout="col2"):
     df = search_data(conn, query)
     for index, row in df.iterrows():
         poem_id = row["id"]
-        with st.beta_expander(label=f"Poem {poem_id}", expanded=False):
+        with st.expander(label=f"Poem {poem_id}", expanded=False):
             show_poem(poem_id, query, font_name=font_name)
         # st.markdown("___")
