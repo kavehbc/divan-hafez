@@ -18,7 +18,7 @@ Source: [https://avayemastan.deklame.net/hafez/](https://avayemastan.deklame.net
 ## Demo
 You can access the demo version deployed on Streamlit server at:
 
-[https://share.streamlit.io/kavehbc/divan-hafez/app.py](https://share.streamlit.io/kavehbc/divan-hafez/app.py)
+[https://divan-hafez.streamlitapp.com/](https://divan-hafez.streamlitapp.com/)
 
 ## Run
 In order to run this tool, you must have Streamlit installed on your machine/environment:
