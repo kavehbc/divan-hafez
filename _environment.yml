@@ -10,4 +10,4 @@ dependencies:
   - streamlit
   - pip
   - pip:
-      - hafez
+      - hafez=0.1.1
