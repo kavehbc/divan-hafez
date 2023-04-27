@@ -58,8 +58,11 @@ def init_ui():
             """, unsafe_allow_html=True)
 
 
-def highlight(verse, query):
-    return verse.replace(query, f'<span style="color:red;">{query}</span>')
+def highlight(verse, query=None):
+    if query is None:
+        return verse
+    else:
+        return verse.replace(query, f'<span style="color:red;">{query}</span>')
 
 
 def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
