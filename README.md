@@ -1,17 +1,19 @@
 # Divan-e Hafez
 
-This is a Diven-e Hafez with Fall-e Hafez developed by Python using Streamlit.
+This is a UI for Diven-e Hafez with Fall-e Hafez (`hafez` python package) using Streamlit.
 The poems come with interpretations and vocal audios.
 
-## Database
-The poems of Divan Hafez are extracted from an open-source database as below:
+## Hafez Python Package
+For more information about the Database and Vocal audios, please check `hafez` library:
 
-Source: [https://github.com/mahmoud-eskandari/HafezFaalDatabase](https://github.com/mahmoud-eskandari/HafezFaalDatabase)
+- https://github.com/kavehbc/hafez
+- https://pypi.org/project/hafez/
 
-## Vocal Audios
-The vocal audio files are done by Ms. Modares Zadeh, and it is available below:  
+This package can be installed using `pip`:
 
-Source: [https://avayemastan.deklame.net/hafez/](https://avayemastan.deklame.net/hafez/)
+```bash
+pip install hafez
+```
 
 > You can run `download_mp3.py` using Streamlit to download all audio files.
 

@@ -9,3 +9,5 @@ dependencies:
   - pandas
   - streamlit
   - pip
+  - pip:
+      - hafez

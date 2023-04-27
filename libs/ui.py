@@ -1,9 +1,6 @@
 import streamlit as st
-
-from libs.db import get_data, get_connection, search_data
+import hafez
 from libs.mp3 import play_audio
-
-URI_SQLITE_DB = "db/hafez.db"
 
 
 def create_text(text, font_name="nastaliq"):
@@ -61,55 +58,47 @@ def init_ui():
             """, unsafe_allow_html=True)
 
 
+def highlight(verse, query):
+    return verse.replace(query, f'<span style="color:red;">{query}</span>')
+
+
 def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
-    conn = get_connection(URI_SQLITE_DB)
-    df = get_data(conn, int_poem)
 
-    if df.shape[0] > 0:
-        st.header(f"غزل شماره {int_poem}")
-        st.write("")
+    poem = hafez.get_poem(int_poem)
 
-        for index, row in df.iterrows():
-            str_poem = row["Poem"]
-            str_interpretation = row["Interpretation"]
+    st.header(f"غزل شماره {poem['id']}")
+    st.write("")
 
-            if query is not None:
-                if len(query) > 0:
-                    lst_query = query.split(" ")
-                    for item in lst_query:
-                        str_poem = str_poem.replace(item, f"<span class='found-query'>{item}</span>")
-        lst_poem = str_poem.split("\\r\\n")
-
-        verse = 0
-        while verse < len(lst_poem):
-            with st.container():
-                if layout == "col2":
-                    col1, col2 = st.columns(2)
-                    with col2:
-                        if verse < len(lst_poem):
-                            st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
-                            verse += 1
-                    with col1:
-                        if verse < len(lst_poem):
-                            st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
-                            verse += 1
-                elif layout == "col1":
-                    if verse < len(lst_poem):
-                        st.markdown(create_text(lst_poem[verse], font_name), unsafe_allow_html=True)
+    verse = 0
+    while verse < len(poem['poem']):
+        with st.container():
+            if layout == "col2":
+                col1, col2 = st.columns(2)
+                with col2:
+                    if verse < len(poem['poem']):
+                        st.markdown(create_text(highlight(poem['poem'][verse], query), font_name), unsafe_allow_html=True)
                         verse += 1
+                with col1:
+                    if verse < len(poem['poem']):
+                        st.markdown(create_text(highlight(poem['poem'][verse], query), font_name), unsafe_allow_html=True)
+                        verse += 1
+            elif layout == "col1":
+                if verse < len(poem['poem']):
+                    st.markdown(create_text(highlight(poem['poem'][verse], query), font_name), unsafe_allow_html=True)
+                    verse += 1
 
-        st.header("تعبیر")
-        st.write("")
-        st.markdown(create_text(str_interpretation, font_name), unsafe_allow_html=True)
-        st.write("")
-        play_audio(int_poem)
+    st.header("تعبیر")
+    st.write("")
+    st.markdown(create_text(poem['interpretation'], font_name), unsafe_allow_html=True)
+    st.write("")
+    play_audio(int_poem)
 
 
 def show_search_result(query, font_name, layout="col2"):
-    conn = get_connection(URI_SQLITE_DB)
-    df = search_data(conn, query)
-    for index, row in df.iterrows():
-        poem_id = row["id"]
+    lst_poems = hafez.search(query)
+
+    for poem in lst_poems:
+        poem_id = poem["id"]
         with st.expander(label=f"Poem {poem_id}", expanded=False):
             show_poem(poem_id, query, font_name=font_name)
         # st.markdown("___")
