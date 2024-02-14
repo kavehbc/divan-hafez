@@ -1,4 +1,6 @@
 import streamlit as st
+import hafez
+import os
 
 
 def get_file_name(id):
@@ -14,6 +16,13 @@ def get_file_name(id):
 
 
 def play_audio(id):
-    audio_file = open(f'mp3/{get_file_name(id)}', 'rb')
+
+    # mp3_file_path = f'mp3/{get_file_name(id)}'
+    mp3_file_path = hafez.get_audio(id)
+
+    if not os.path.exists(mp3_file_path):
+        hafez.download_audio(id)
+
+    audio_file = open(mp3_file_path, 'rb')
     audio_bytes = audio_file.read()
     st.audio(audio_bytes, format='audio / ogg')

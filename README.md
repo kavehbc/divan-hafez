@@ -15,8 +15,6 @@ This package can be installed using `pip`:
 pip install hafez
 ```
 
-> You can run `download_mp3.py` using Streamlit to download all audio files.
-
 ## Demo
 You can access the demo version deployed on Streamlit server at:
 
@@ -52,7 +50,7 @@ Injection functions are managed inside `libs\injection.py`.
 
 ## Developer(s)
 Kaveh Bakhtiyari - [Website](http://bakhtiyari.com) | [Medium](https://medium.com/@bakhtiyari)
-  | [LinkedIn](https://www.linkedin.com/in/bakhtiyari) | [Github](https://github.com/kavehbc)
+  | [LinkedIn](https://www.linkedin.com/in/bakhtiyari) | [GitHub](https://github.com/kavehbc)
 
 ## Contribution
 Feel free to join the open-source community and contribute to this repository.

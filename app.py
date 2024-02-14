@@ -5,6 +5,7 @@ from libs.constants import *
 from libs.injection import manage_injections
 from libs.readme import show_readme
 from libs.ui import create_text, init_ui, show_poem, show_search_result
+import hafez
 
 
 def main():
