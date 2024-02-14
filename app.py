@@ -1,11 +1,10 @@
 import streamlit as st
 import random
-
+import hafez
 from libs.constants import *
 from libs.injection import manage_injections
 from libs.readme import show_readme
 from libs.ui import create_text, init_ui, show_poem, show_search_result
-import hafez
 
 
 def main():
@@ -14,7 +13,16 @@ def main():
     if st_app_menu == "about":
         show_readme()
         st.stop()
+    elif st_app_menu == "download":
+        st.title("دانلود صدا")
+        st.markdown("___")
+        btn_download = st.button("بارگیری دکلمه تمام اشعار")
+        if btn_download:
+            st_download_progress = st.progress(0, text="Downloading...")
+            for item in hafez.download_all_audio():
+                st_download_progress.progress(item / 495, text=f"Downloading {item}...")
 
+            st_download_progress.progress(100, text=f"Download Completed.")
     elif st_app_menu == "app":
 
         st.title("دیوان حافظ")
