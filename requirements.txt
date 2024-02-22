@@ -1,4 +1,4 @@
 numpy
 pandas
 streamlit
-hafez==0.2.3
+hafez==0.2.4
