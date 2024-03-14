@@ -90,9 +90,13 @@ def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
                     st.markdown(create_text(highlight(poem['poem'][verse], query), font_name), unsafe_allow_html=True)
                     verse += 1
 
-    st.header("تعبیر")
+    st.header("تعبیر 1")
     st.write("")
     st.markdown(create_text(poem['interpretation'], font_name), unsafe_allow_html=True)
+    if len(poem['alt_interpretation']) > 0:
+        st.header("تعبیر 2")
+        st.write("")
+        st.markdown(create_text(poem['alt_interpretation'], font_name), unsafe_allow_html=True)
     st.write("")
     play_audio(int_poem)
 
