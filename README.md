@@ -48,6 +48,9 @@ and it does not contain any personal information. The file containing the script
 
 Injection functions are managed inside `libs\injection.py`.
 
+## Screenshot
+![App Screenshot](screenshot/divan-hafez.png "App Screenshot")
+
 ## Developer(s)
 Kaveh Bakhtiyari - [Website](http://bakhtiyari.com) | [Medium](https://medium.com/@bakhtiyari)
   | [LinkedIn](https://www.linkedin.com/in/bakhtiyari) | [GitHub](https://github.com/kavehbc)
