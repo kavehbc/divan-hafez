@@ -35,7 +35,8 @@ def main():
 
         font_name = st.sidebar.selectbox("Font Name", options=list(FONT_NAMES.keys()), index=0,
                                          format_func=lambda x: FONT_NAMES[x])
-        st_poem_layout = st.sidebar.selectbox("Poem Layout", options=list(POEM_LAYOUT_OPTIONS.keys()), index=1,
+        st_poem_layout = st.sidebar.selectbox("Poem Layout", options=list(POEM_LAYOUT_OPTIONS.keys()),
+                                              index=0,
                                               format_func=lambda x: POEM_LAYOUT_OPTIONS[x])
 
         font_size = 2
