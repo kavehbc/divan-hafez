@@ -4,7 +4,7 @@
 
 FROM python:3.9-buster
 
-LABEL version="1.0.4"
+LABEL version="1.0.5"
 LABEL maintainer="Kaveh Bakhtiyari"
 LABEL url="http://bakhtiyari.com"
 LABEL vcs-url="https://github.com/kavehbc/divan-hafez"
