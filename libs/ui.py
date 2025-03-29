@@ -62,7 +62,11 @@ def highlight(verse, query=None):
     if query is None:
         return verse
     else:
-        return verse.replace(query, f'<span style="color:red;">{query}</span>')
+        query = query.strip()
+        lst_query = query.split(" ")
+        for item in lst_query:
+            verse = verse.replace(item, f'<span style="color:red;">{item}</span>')
+        return verse
 
 
 def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
