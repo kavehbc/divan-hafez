@@ -2,9 +2,9 @@
 # docker save -o divan-hafez.tar kavehbc/divan-hafez
 # docker load --input divan-hafez.tar
 
-FROM python:3.9-buster
+FROM python:3.11-slim
 
-LABEL version="1.0.7"
+LABEL version="1.0.8"
 LABEL maintainer="Kaveh Bakhtiyari"
 LABEL url="http://bakhtiyari.com"
 LABEL vcs-url="https://github.com/kavehbc/divan-hafez"
