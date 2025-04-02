@@ -1,4 +1,4 @@
-# docker build --progress=plain --no-cache -t kavehbc/divan-hafez .
+# docker build --progress=plain --no-cache -t kavehbc/divan-hafez:latest -t kavehbc/divan-hafez:1.0.9 .
 # docker save -o divan-hafez.tar kavehbc/divan-hafez
 # docker load --input divan-hafez.tar
 

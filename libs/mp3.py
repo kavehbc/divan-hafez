@@ -1,6 +1,5 @@
 import streamlit as st
 import hafez
-import os
 import requests
 
 
