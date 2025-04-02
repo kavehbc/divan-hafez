@@ -4,7 +4,7 @@
 
 FROM python:3.11-slim
 
-LABEL version="1.0.8"
+LABEL version="1.0.9"
 LABEL maintainer="Kaveh Bakhtiyari"
 LABEL url="http://bakhtiyari.com"
 LABEL vcs-url="https://github.com/kavehbc/divan-hafez"
