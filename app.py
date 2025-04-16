@@ -66,8 +66,18 @@ def main():
 
 
 if __name__ == '__main__':
-    st.set_page_config("Divan-e Hafez")
-
+    st.set_page_config(
+    page_title="Divan-e Hafez",
+    page_icon="📖",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items={
+        'Get Help': 'https://github.com/kavehbc/divan-hafez',
+        'Report a bug': "https://github.com/kavehbc/divan-hafez",
+        'About': "# UI for `hafez` PyPi package."
+        }
+    )
+    
     # inject required HTML/CSS/JS into the project
     manage_injections()
     init_ui()
