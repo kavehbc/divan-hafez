@@ -13,13 +13,14 @@ def create_text(text, font_name="nastaliq"):
 def init_ui():
     st.markdown("""
         <style>
-        @font-face {font-family: "B Yekan";
-            src: url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.eot"); /* IE9*/
-            src: url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.woff2") format("woff2"), /* chrome firefox */
-            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.woff") format("woff"), /* chrome firefox */
-            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-            url("https://db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.svg#B Yekan") format("svg"); /* iOS 4.1- */
+        @font-face {
+            font-family: "IRANYekan";
+            src: url("https://db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.eot");
+            src: url("https://db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.eot?#iefix")format("embedded-opentype"),
+            url("https://db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.woff2")format("woff2"),
+            url("https://db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.woff")format("woff"),
+            url("https://db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.ttf")format("truetype"),
+            url("https://db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.svg#IRANYekan")format("svg");
         }
         
         @font-face {font-family: "IranNastaliq";
@@ -45,7 +46,7 @@ def init_ui():
           /* unicode-bidi:bidi-override;
           direction: RTL;
           text-align: right; */
-          font-family: 'B Yekan', Tahoma;
+          font-family: 'IRANYekan', Tahoma;
         }
         .found-query {
             font-weight: bold;
