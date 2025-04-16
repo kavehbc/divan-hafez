@@ -30,6 +30,17 @@ def init_ui():
             url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
             url("https://db.onlinewebfonts.com/t/3b019b0df3b0d6ea4d1b2f051132febb.svg#IranNastaliq") format("svg"); /* iOS 4.1- */
         }
+                
+        @font-face {
+            font-family: "IRAN Sans Regular";
+            src: url("https://db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot");
+            src: url("https://db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot?#iefix")format("embedded-opentype"),
+            url("https://db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff2")format("woff2"),
+            url("https://db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff")format("woff"),
+            url("https://db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.ttf")format("truetype"),
+            url("https://db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.svg#IRAN Sans Regular")format("svg");
+        }
+                
         p, div, input, label {
           /* unicode-bidi:bidi-override;
           direction: RTL;
@@ -52,6 +63,13 @@ def init_ui():
           direction: RTL;
           text-align: right;
           font-family: 'B Yekan', Tahoma;
+          font-size: 1em;
+        }
+        .custom_iran_sans_text {
+          unicode-bidi:bidi-override;
+          direction: RTL;
+          text-align: right;
+          font-family: 'IRAN Sans Regular', Tahoma;
           font-size: 1em;
         }
         </style>
