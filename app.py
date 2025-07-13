@@ -1,11 +1,23 @@
 import streamlit as st
 import random
 import hafez
+from user_agents import parse
 from libs.constants import *
 from libs.injection import manage_injections
 from libs.readme import show_readme
 from libs.ui import create_text, init_ui, show_poem, show_search_result
 
+def is_mobile():
+    """Check if the user is on a mobile device."""
+    user_agent = st.context.headers.get('User-Agent')
+    if user_agent:
+       ua = parse(user_agent)
+       if ua.is_mobile:
+           return True
+       else:
+           return False
+    else:
+       return False
 
 def pg_about():
     show_readme()
@@ -33,8 +45,10 @@ def pg_app():
 
     font_name = st.sidebar.selectbox("Font Name", options=list(FONT_NAMES.keys()), index=0,
                                         format_func=lambda x: FONT_NAMES[x])
+    
+
     st_poem_layout = st.sidebar.selectbox("Poem Layout", options=list(POEM_LAYOUT_OPTIONS.keys()),
-                                            index=0,
+                                            index=0 if is_mobile() else 1,
                                             format_func=lambda x: POEM_LAYOUT_OPTIONS[x])
 
     font_size = 2

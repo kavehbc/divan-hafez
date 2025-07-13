@@ -9,3 +9,6 @@ dependencies:
   - pip
   - pip:
       - hafez
+      - pyyaml
+      - ua-parser
+      - user-agents

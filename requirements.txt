@@ -1,2 +1,5 @@
 streamlit
 hafez>=0.3.0
+pyyaml
+ua-parser
+user-agents
