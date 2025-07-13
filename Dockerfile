@@ -1,10 +1,10 @@
-# docker build --progress=plain --no-cache -t kavehbc/divan-hafez:latest -t kavehbc/divan-hafez:1.0.10 .
+# docker build --progress=plain --no-cache -t kavehbc/divan-hafez:latest -t kavehbc/divan-hafez:1.0.11 .
 # docker save -o divan-hafez.tar kavehbc/divan-hafez
 # docker load --input divan-hafez.tar
 
 FROM python:3.11-slim
 
-LABEL version="1.0.10"
+LABEL version="1.0.11"
 LABEL maintainer="Kaveh Bakhtiyari"
 LABEL url="http://bakhtiyari.com"
 LABEL vcs-url="https://github.com/kavehbc/divan-hafez"
