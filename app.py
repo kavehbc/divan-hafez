@@ -65,9 +65,9 @@ def pg_app():
 def main():
 
     pages = [
-            st.Page(pg_about, title="درباره", icon="📌"),
+            st.Page(pg_app, title="دیوان حافظ", icon="📖", default=True),
             st.Page(pg_download, title="دانلود صدا", icon="📲"),
-            st.Page(pg_app, title="دیوان حافظ", icon="📖", default=True)
+            st.Page(pg_about, title="درباره برنامه", icon="📌")
         ]
 
     pg = st.navigation(pages)
