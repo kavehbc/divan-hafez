@@ -124,9 +124,14 @@ def show_poem(int_poem, query=None, font_name="nastaliq", layout="col2"):
     play_audio(int_poem)
 
 
-def show_search_result(query, font_name, layout="col2"):
-    lst_poems = hafez.search(query)
+def show_search_result(query, exact_match, font_name, layout="col2"):
+    lst_poems = hafez.search(query, exact_match=exact_match)
 
+    st.header(f"نتایج جستجو برای عبارت: {query}")
+    if len(lst_poems) == 0:
+        st.error("شعر مورد نظر یافت نشد.")
+        return
+    
     for poem in lst_poems:
         poem_id = poem["id"]
         with st.expander(label=f"Poem {poem_id}", expanded=False):

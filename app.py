@@ -38,16 +38,21 @@ def pg_app():
     st.title("دیوان حافظ")
     st.markdown("___")
 
-    int_poem = st.sidebar.number_input("َPoem #", min_value=1, max_value=495, step=1)
-    btn_show_poem = st.sidebar.button("نمایش غزل")
-    str_query = st.sidebar.text_input("َSearch Query")
-    btn_search_poem = st.sidebar.button("جستجو")
+    with st.sidebar.expander("غزلیات", expanded=True):
+        int_poem = st.number_input("َشماره غزل", min_value=1, max_value=495, step=1)
+        btn_show_poem = st.button("نمایش غزل")
 
-    font_name = st.sidebar.selectbox("Font Name", options=list(FONT_NAMES.keys()), index=0,
+    with st.sidebar.expander("جستجو", expanded=True):
+        str_query = st.text_input("َعبارت جستجو")
+        # to check if the search query should be word by word or not
+        chk_exact = st.checkbox("جستجوی دقیق", value=True)
+        btn_search_poem = st.button("جستجو")
+
+    with st.sidebar.expander("تنظیمات", expanded=True):
+        font_name = st.selectbox("نام قلم", options=list(FONT_NAMES.keys()), index=0,
                                         format_func=lambda x: FONT_NAMES[x])
-    
 
-    st_poem_layout = st.sidebar.selectbox("Poem Layout", options=list(POEM_LAYOUT_OPTIONS.keys()),
+        st_poem_layout = st.selectbox("چیدمان شعر", options=list(POEM_LAYOUT_OPTIONS.keys()),
                                             index=0 if is_mobile() else 1,
                                             format_func=lambda x: POEM_LAYOUT_OPTIONS[x])
 
@@ -63,7 +68,7 @@ def pg_app():
         if len(str_query) == 0:
             st.error("جهت جستجو عبارت مورد نظر را وارد نمایید.")
         else:
-            show_search_result(str_query, font_name=font_name, layout=st_poem_layout)
+            show_search_result(str_query, exact_match=chk_exact, font_name=font_name, layout=st_poem_layout)
 
     elif btn_show_poem or btn_fall:
         show_poem(int_poem, font_name=font_name, layout=st_poem_layout)
